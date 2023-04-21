@@ -522,6 +522,8 @@ class IQ_Option:
                     pass
                 if self.api.candles.candles_data != None:
                     break
+                elif self.check_connect() is False:
+                    raise Exception()
             except:
                 logging.error('**error** get_candles need reconnect')
                 self.connect()
